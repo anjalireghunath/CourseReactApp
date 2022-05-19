@@ -5,9 +5,11 @@ import Header from './Header'
 const View = () => {
 
     var [viewlist,setViewlist]=useState([]) 
+    var [loadstatus,setLoadstatus]=useState(true)
     axios.get("https://mylinkurcodesapp.herokuapp.com/getcourses").then((response)=>{
         console.log(response.data)
         setViewlist(response.data)
+        setLoadstatus(false)
     })
   return (
     <div>
@@ -18,7 +20,9 @@ const View = () => {
             <div className='col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12'>
             <div className='row g-3'>
                 <div className='col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12'>
-            
+            {loadstatus ? <div class="spinner-border" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div> :
                 <table class="table table-primary table-striped">
   <thead>
     <tr>
@@ -43,7 +47,7 @@ const View = () => {
     
     
   </tbody>
-</table>
+</table>}
 
 
 
