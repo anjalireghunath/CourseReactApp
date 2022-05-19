@@ -8,7 +8,7 @@ const CourseEntry = () => {
     var [venue,setVenue]=useState("")
     var [date,setDate]=useState("")
     const subData=()=>{
-        const data={"title":title,"duration":duration,"description":description,"venue":venue,"date":date}
+        const data={"courseTitle":title,"courseDuration":duration,"courseDescription":description,"courseVenue":venue,"courseDate":date}
         console.log(data)
     }
   return (
